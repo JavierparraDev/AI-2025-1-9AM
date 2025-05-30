@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Realtime Alerts",
+    "slug": "realtime-alerts",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.realtimealerts"
+    },
+    "android": {
+      "package": "com.yourcompany.realtimealerts",
+      "permissions": [
+        "NOTIFICATIONS",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff"
+        }
+      ]
+    ],
+    "sdkVersion": "53.0.0"
+  }
+}
