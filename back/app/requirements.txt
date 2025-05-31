@@ -1,0 +1,30 @@
+# Framework web
+Flask==2.3.3
+Flask-Cors==4.0.0
+
+# Base de datos
+pymongo==4.5.0
+
+# MQTT
+paho-mqtt==2.1.0
+
+# Procesamiento de imágenes
+Pillow==10.0.0
+numpy==1.24.3
+
+# Variables de entorno
+python-dotenv==1.0.0
+
+# Seguridad
+cryptography==41.0.3
+PyJWT==2.8.0
+
+# Utilidades
+requests==2.31.0
+python-dateutil==2.8.2
+python-magic==0.4.27    # Para detectar tipos MIME de archivos
+
+# Desarrollo y pruebas
+pytest==7.4.0
+black==23.7.0
+flake8==6.1.0

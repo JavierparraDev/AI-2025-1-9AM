@@ -1,0 +1,1 @@
+USERS = ["persona_1", "persona_2"]
