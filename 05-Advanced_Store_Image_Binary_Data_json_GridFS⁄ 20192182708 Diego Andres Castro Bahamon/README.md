@@ -1,4 +1,3 @@
-
 ---
 
 # Binarizacion de imágenes Gridfs + Mongodb
@@ -349,8 +348,6 @@ if __name__ == '__main__':
 
 ---
 
-
-
 ### Endpoint: `POST http://localhost:5000/upload`
 
 1. En Postman, selecciona método `POST`
@@ -438,29 +435,16 @@ if __name__ == '__main__':
 
 ---
 
-[Probar en Postman](Postman.md)
-
-
-
-	Conectar con:
-
-
-[REACT](Importar+react)
-[Flask](Importar+Flask.md)
-[FastApi](Importar+FastApi.md)
-
-
-
 ## ¿Cómo hacer ingreso de datos desde **Postman**?
 
-### 🟢 Endpoint: `POST http://localhost:5000/upload`
+### 🟢 Endpoint: `POST http://localhost:6666/upload`
 
 1. En Postman, selecciona método `POST`
     
 2. En la URL pon:
     
     ```
-    http://localhost:5000/upload
+    http://localhost:6666/upload
     ```
     
 3. Ve a pestaña **Body**
@@ -497,7 +481,7 @@ if __name__ == '__main__':
 - URL:
     
     ```
-    http://localhost:5000/get/6650423ab1209cf72c7d5d44
+    http://localhost:6666/get/6650423ab1209cf72c7d5d44
     ```
     
 
@@ -512,7 +496,7 @@ if __name__ == '__main__':
 - URL:
     
     ```
-    http://localhost:5000/update/6650423ab1209cf72c7d5d44
+    http://localhost:6666/update/6650423ab1209cf72c7d5d44
     ```
     
 - Body → `raw` → JSON → `application/json`:
@@ -534,12 +518,12 @@ if __name__ == '__main__':
 - URL:
     
     ```
-    http://localhost:5000/delete/6650423ab1209cf72c7d5d44
+    http://localhost:6666/delete/6650423ab1209cf72c7d5d44
     ```
     
 
     
-## ✅ 3. **Desde FastAPI (cliente o microservicio)**
+## ✅ **Desde FastAPI (cliente o microservicio)**
 
 En FastAPI puedes usar `httpx` o `requests` para hacer la conexión.
 
@@ -554,7 +538,7 @@ async def reenviar(file: UploadFile, uploader: str = Form(...), tags: str = Form
     files = {'file': (file.filename, await file.read(), file.content_type)}
     data = {'uploader': uploader, 'tags': tags}
 
-    response = requests.post("http://localhost:5000/upload", files=files, data=data)
+    response = requests.post("http://localhost:6666/upload", files=files, data=data)
 
     return {
         "status": response.status_code,
@@ -563,7 +547,7 @@ async def reenviar(file: UploadFile, uploader: str = Form(...), tags: str = Form
 
 ```
 
-## ✅ 2. **Conectarlo desde otro Flask (como cliente)**
+## ✅ **Conectarlo desde otro Flask (como cliente)**
 
 Desde otro servidor Flask puedes hacer peticiones HTTP con `requests`:
 
@@ -583,7 +567,7 @@ else:
 
 ```
 
-## ✅ 1. **Integrar desde React (Frontend en JS)**
+## ✅ **Integrar desde React (Frontend en JS)**
 
 En React usarías `fetch` o `axios` para conectarte al backend Flask.
 
