@@ -1,0 +1,34 @@
+Probando Cambios
+
+2025-05-15 09:14:17,379 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6666
+ * Running on http://192.168.223.237:6666
+2025-05-15 09:14:17,379 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 09:22:23,266 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6666
+ * Running on http://172.16.78.253:6666
+2025-05-15 09:22:23,266 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 11:34:24,771 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6666
+ * Running on http://192.168.146.89:6666
+2025-05-15 11:34:24,771 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 11:39:15,048 - INFO - Subida de imagen: petro_hitler.jpg por Pichote, tags: ['prueba', 'probando', 'boca']
+2025-05-15 11:39:15,049 - INFO - 127.0.0.1 - - [15/May/2025 11:39:15] "[35m[1mPOST /upload HTTP/1.1[0m" 201 -
+2025-05-15 11:44:28,927 - INFO - 127.0.0.1 - - [15/May/2025 11:44:28] "GET /get/682618b21db5c169c1a09a15 HTTP/1.1" 200 -
+2025-05-15 11:46:19,563 - INFO - 127.0.0.1 - - [15/May/2025 11:46:19] "PUT /update/682618b21db5c169c1a09a15 HTTP/1.1" 200 -
+2025-05-15 11:48:52,379 - INFO - 127.0.0.1 - - [15/May/2025 11:48:52] "DELETE /delete/682618b21db5c169c1a09a15 HTTP/1.1" 200 -
+2025-05-15 11:49:14,679 - INFO - 127.0.0.1 - - [15/May/2025 11:49:14] "[33mGET /get/682618b21db5c169c1a09a15 HTTP/1.1[0m" 404 -
+2025-05-15 11:52:26,461 - INFO - Subida de imagen: petro_hitler.jpg por Pichote, tags: ['prueba', 'probando', 'boca']
+2025-05-15 11:52:26,461 - INFO - 127.0.0.1 - - [15/May/2025 11:52:26] "[35m[1mPOST /upload HTTP/1.1[0m" 201 -
+2025-05-15 11:52:49,508 - INFO - 127.0.0.1 - - [15/May/2025 11:52:49] "GET /get/68261bca1db5c169c1a09a18 HTTP/1.1" 200 -
+2025-05-15 13:57:32,332 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6666
+ * Running on http://192.168.223.237:6666
+2025-05-15 13:57:32,332 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 13:57:36,814 - INFO - Subida de imagen: petro_hitler.jpg por Pichote, tags: ['prueba', 'probando', 'boca']
+2025-05-15 13:57:36,814 - INFO - 127.0.0.1 - - [15/May/2025 13:57:36] "[35m[1mPOST /upload HTTP/1.1[0m" 201 -
+2025-05-15 13:57:58,147 - INFO - 127.0.0.1 - - [15/May/2025 13:57:58] "GET /get/682639205d2919e66fa99d0a HTTP/1.1" 200 -
