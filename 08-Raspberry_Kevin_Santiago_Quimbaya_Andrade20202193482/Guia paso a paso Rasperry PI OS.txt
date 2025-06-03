@@ -1,0 +1,169 @@
+
+
+
+
+MOSQUITTO
+========================================================================
+https://mosquitto.org/blog/2013/01/mosquitto-debian-repository/
+
+
+- Instalar Mosquitto
+wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+sudo apt-key add mosquitto-repo.gpg.key
+sudo apt-get install mosquitto
+
+
+
+- Habilita e inicia el servicio
+sudo systemctl enable mosquitto
+sudo systemctl start mosquitto
+
+
+- Instalar cliente mosquito
+sudo apt install -y mosquitto-clients
+
+- Publicar un mensaje en ese tema
+mosquitto_pub -h 192.168.221.183 -t usco/topic -m "Hola desde Raspberry Pi"
+mosquitto_pub -h 192.168.221.183 -t usco/topic -m "{'bombilla': 'ON'}"
+
+- Probar Publish y Subscribe localmente (escuchar)
+mosquitto_sub -h localhost -t test/topic
+
+
+
+FLASK
+==================================================
+
+
+
+POSTGRESQL
+===================================================
+sudo apt install postgresql postgresql-contrib -y
+
+
+- Crear usuario y base de datos
+sudo -u postgres psql
+
+
+CREATE USER pi_user WITH PASSWORD 'root';
+CREATE DATABASE ia_6;
+GRANT ALL PRIVILEGES ON DATABASE ia_6 TO pi_user;
+\q
+
+
+
+
+MONGO DB
+=======================================================
+
+
+cd ~
+wget -q -O MongoARM64.zip https://github.com/Inqnuam/MongoDB-ARMv8/releases/download/v5.0.6/MongoDBv5.0.6_ARM64.zip
+unzip MongoARM64.zip
+rm MongoARM64.zip
+
+
+//Crear archivo de configuración /etc/mongod.conf
+sudo nano /etc/mongod.conf
+storage:
+  dbPath: /var/lib/mongodb
+systemLog:
+  destination: file
+  path: /var/log/mongodb/mongod.log
+  logAppend: true
+net:
+  bindIp: 127.0.0.1
+  port: 27017
+processManagement:
+  fork: false
+
+Guarda con CTRL+O y ENTER, luego CTRL+X.
+
+
+//Crear servicio systemd
+sudo nano /etc/systemd/system/mongod.service
+
+	[Unit]
+	Description=MongoDB Database Server
+	After=network.target
+
+	[Service]
+	User=mongodb
+	Group=mongodb
+	ExecStart=/usr/bin/mongod --config /etc/mongod.conf
+	PIDFile=/var/run/mongodb/mongod.pid
+	Restart=on-failure
+
+	[Install]
+	WantedBy=multi-user.target
+
+//Crear archivos y dar permisos
+sudo mkdir -p /var/log/mongodb /var/lib/mongodb
+sudo chown -R root:root /var/log/mongodb /var/lib/mongodb
+
+
+//Correr mongoDB
+sudo systemctl daemon-reload
+sudo systemctl enable mongod
+sudo systemctl start mongod
+
+
+
+	//Alternativa
+		# Install the MongoDB 4.4 GPG key:
+		- Descargo el archivo local
+		- sudo apt-key add ~/Descargas/server-4.4.asc
+
+		//Alternativa
+		wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+
+
+		# Add the source location for the MongoDB packages:
+		echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+
+		# Download the package details for the MongoDB packages:
+		sudo apt-get update
+
+		# Install MongoDB:
+		sudo apt-get install -y mongodb-org
+
+		# saber si esta instalado 
+		mongod --version
+
+
+
+MONGODB - SH
+=========================================
+https://www.mongodb.com/try/download/shell
+
+- Descargar: Linux arm64
+- Descomprimir:
+	tar -xvzf nombre_archivo.tgz
+- Acceder a la carpeta extraida
+	cd nombre_carpeta
+- Mover a la carpeta patch 
+	sudo mv bin/mongosh /usr/local/bin/
+- Ejecutar mongosh desde cualquier parte
+	mongosh
+
+
+
+JAVA
+===========================================
+sudo apt install openjdk-17-jdk -y
+
+
+
+
+
+
+PRUEBA
+========================================
+- nano prueba.py
+- python prueba.py 
+- Guarda con CTRL+O y ENTER, luego CTRL+X.
+
+
+
+
+
